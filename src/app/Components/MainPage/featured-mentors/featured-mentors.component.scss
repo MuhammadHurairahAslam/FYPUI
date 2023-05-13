@@ -1,0 +1,9 @@
+.buttonfeatures{
+    border-width: 1px; 
+    border-radius: 50px!important; 
+    border-color: #5b3473;
+    &:hover{
+        border-color: #ffc000!important;
+        color: #ffc000!important;
+    }
+}

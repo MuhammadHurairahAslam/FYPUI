@@ -1,0 +1,44 @@
+<div class="container profile d-flex justify-content-center align-items-center" >
+ 
+    <img src="{{this.url+data?.image}}" alt="profile logo" />
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row bg-light">
+        
+        <div class="form-label">{{data?.name}}</div>
+
+        <div class="form-label">{{data?.description}}</div>
+        <div class="form-label">{{data?.gender}}</div>
+        <div class="form-label">{{data?.levelOfEducation}}</div>
+        <div class="form-label">{{data?.instituteName}}</div>
+        <div class="form-label">{{data?.qualificationFrom}}</div>
+        <div class="form-label">{{data?.qualificationTo}}</div>
+        <div class="form-label">{{data?.organization}}</div>
+        <div class="form-label">{{data?.role}}</div>
+        <div class="form-label">{{data?.experienceFrom}}</div>
+        <div class="form-label">{{data?.experienceTo}}</div>
+        <span *ngFor="let subList of data?.subjectDtos; let i=index">
+            {{subList.subjectName}}
+            <ng-container *ngIf="i < data.subjectDtos.length-1">, </ng-container>
+    </span>
+    </div>
+
+    <div class="mt-5">
+        <h4 class="text-secondary">Demo Video</h4>
+        <div class="card bg-light">
+
+            <div class="container">
+                
+                <div class="d-flex justify-content-center">
+                    <video [src]=this.url+data.video  controls></video>
+                </div>
+                
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<button  id="myBtn" title="Go to top">Chat Now</button>

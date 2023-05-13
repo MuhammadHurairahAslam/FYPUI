@@ -1,0 +1,220 @@
+<nav class="navbar navbar-light bg-light  bg-dark bg-gradient">
+  <div class="container d-flex justify-content-end">
+    <form class="form-inline">
+      <a class="btn btn-sm btn-outline-secondary loginReg" data-bs-toggle="modal" href="#Login" role="button">Login</a>
+      <a class="btn btn-sm btn-outline-secondary loginReg" data-bs-toggle="modal" href="#Registeration"
+        role="button">Registeration</a>
+
+    </form>
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink=""><img src="../../../../assets/Images/ezgif.com-crop.gif"
+        style="height: 40px;" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Search-Mentor">SEARCH TUTORS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" routerLink="/Request-Mentor">REQUEST A TUTOR</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" routerLink="#">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" routerLink="/Contact">CONTACT US</a>
+        </li>
+      </ul>
+      <!-- <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+    </div>
+  </div>
+</nav>
+
+<!-- Login modal -->
+
+<div class="modal fade" id="Login" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #5b3473!important;">
+        <h2 class="modal-title" style="color: white;" id="exampleModalToggleLabel">Login As </h2>
+        
+        <button type="button" class="btn-close btn btn-primary" style="color: white; background-color: #ffc000!important;"  data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <img src="../../../../assets/Images/graduated.png" style="width: 100px;" height="80px" class="nav-link active"
+             id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"/>
+          </li>
+          <li class="nav-item" role="presentation">
+            <img src="../../../../assets/Images/video.png" style="width: 100; height: 80px; padding: -2;" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"/>
+          </li>
+        </ul>
+
+        
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!---Student-->
+            <form class="mt-4 mx-4" #studentForm="ngForm" (ngSubmit)="getStudentFormData(studentForm.value)">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form2Example1" class="form-control" ngModel name="email" />
+                <label class="form-label" for="form2Example1">Email address</label>
+              </div>
+            
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" class="form-control" ngModel name="pass"/>
+                <label class="form-label" for="form2Example2">Password</label>
+              </div>
+            
+              <!-- 2 column grid layout for inline styling -->
+              <div class="row mb-4">
+             
+            
+                <div class="d-flex justify-content-end">
+                  <!-- Simple link -->
+                  <a href="#!">Forgot password?</a>
+                </div>
+              </div>
+            
+              <!-- Submit button -->
+              <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary btn-block mb-4 px-5">Sign in</button>
+            </div>
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>Not a member? <a data-bs-toggle="modal" data-bs-dismiss="modal" href="#Registeration"
+                  role="button">Register</a></p>
+                
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <!---Mentor-->
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <form class="mt-4 mx-4" #mentorForm="ngForm" (ngSubmit)="getMentorFormData(mentorForm.value)">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="form2Example1" class="form-control" ngModel name="email" />
+                <label class="form-label" for="form2Example1">Email address</label>
+              </div>
+            
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" class="form-control" ngModel name="pass" />
+                <label class="form-label" for="form2Example2">Password</label>
+              </div>
+            
+              <!-- 2 column grid layout for inline styling -->
+              <div class="row mb-4">
+             
+            
+                <div class="d-flex justify-content-end">
+                  <!-- Simple link -->
+                  <a href="#!">Forgot password?</a>
+                </div>
+              </div>
+            
+              <!-- Submit button -->
+              <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary btn-block mb-4 px-5">Sign in</button>
+            </div>
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>Not a member? <a data-bs-toggle="modal" data-bs-dismiss="modal" href="#Registeration"
+                  role="button">Register</a></p>
+                
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+            
+                <button type="button" class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+         
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- End Login Modal -->
+
+<!-- Registeration Modal -->
+<div class="modal fade" id="Registeration" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" style="color: #5b3473;" id="exampleModalToggleLabel">Register As A</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6 d-flex justify-content-center align-middle">
+            <a routerLink="/register-as-mentor" data-bs-dismiss="modal">
+              <div class="card col px-5 pt-2 bg-light " style="height: 200px!important; ">
+                <img src="../../../../assets/Images/video.png" alt="..."
+                  style="height: 130px; width: 120px;" />
+                <div class="modal-footer w-100 justify-content-center align-bottom">
+                  <p>Mentor</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-6 d-flex justify-content-center align-middle">
+            <a routerLink="/register-as-student" data-bs-dismiss="modal">
+              <div class="card col px-5 pt-2 bg-light" style="height: 200px!important; ">
+                <img src="../../../../assets/Images/graduated.png" alt="..." style="height: 100px; width: 120px; " />
+                <div class="modal-footer w-100 justify-content-center align-bottom pt-5">
+                  <p>Student</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- End Registeration Modal-->

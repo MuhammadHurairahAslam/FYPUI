@@ -1,0 +1,22 @@
+.contactlink{
+    text-decoration: none;
+    color: white;
+     padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 2px; 
+    padding-bottom: 4px; 
+    border: solid; 
+    border-color: white; 
+    border-radius: 20px; 
+    border-width: 2px;
+    &:hover{
+        border-color: #ffc000;
+    }
+}
+a{
+    text-decoration: none;
+    &:hover{
+        cursor: grab;
+        color: #ffc000!important;
+    }
+}

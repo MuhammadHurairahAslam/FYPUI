@@ -1,0 +1,41 @@
+.poster{   
+    height: 60vh;
+    width: 100%;
+    object-fit:cover;
+}
+.uimg{
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid;
+    border-color: #5b3473;
+    border-width: 2px;
+}
+video{
+    height: 60vh;
+    width: 90%;
+    margin: 5%;
+    border: solid;
+    border-color: #5b3473;
+    border-width: 2px;
+    border-radius: 10px;
+    object-fit: cover;
+
+
+}
+.plus{
+    height: 25px; width: 25px; margin-top: auto; margin-bottom: auto;
+    &:hover{
+        cursor: grab;
+    }
+}
+.subjectList{
+    list-style: none;
+    background-color: #5b3473;
+    color: white;
+    border-radius: 7px;
+}
+.pickfile{
+    display: none;
+}
