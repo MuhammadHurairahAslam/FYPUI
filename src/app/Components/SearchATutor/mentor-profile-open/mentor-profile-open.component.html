@@ -24,7 +24,8 @@
     </span>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5" *ngIf="auth.getAccountType() === 'mentor'">
+        <h4>{{auth.getAccountType()}}</h4>
         <h4 class="text-secondary">Demo Video</h4>
         <div class="card bg-light">
 

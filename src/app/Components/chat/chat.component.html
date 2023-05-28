@@ -1,0 +1,57 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 ">
+      
+        <div class="chat-box">
+          <div class="message" *ngFor="let message of message">
+            <div class="sender" *ngIf="message.from === 'sender'">
+              <span>{{ message.text }}</span>
+            </div>
+            <div class="receiver" *ngIf="message.from === 'receiver'">
+              <span>{{ message.text }}</span>
+            </div>
+          </div>
+        </div>
+        <form #chatForm="ngForm" (ngSubmit)="sendMessage(chatForm.value)">
+        <div class="input-group">
+         
+          <input class="form-control" placeholder="Type a message..." ngModel name="message">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+         
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+    -->
+   <!-- <div>
+    <h2>Send Message</h2>
+    <input type="text" [(ngModel)]="message" placeholder="Enter your message">
+    <button (click)="sendMessage()">Send</button>
+  </div> -->
+<!--   
+  <div>
+    <h2>Received Messages</h2>
+    <ul>
+      <li *ngFor="let receivedMessage of receivedMessages">{{ receivedMessage }}</li>
+    </ul>
+  </div>
+  <h2>SignalR Demo</h2>
+<p><b>hubHelloMessage:</b>{{ hubMessage }}</p> -->
+
+
+
+<div>
+    <div *ngFor="let msg of messages">
+      <strong>{{ msg.user }}:</strong> {{ msg.message }}
+    </div>
+  </div>
+  
+  <div>
+    <input type="text" [(ngModel)]="user" placeholder="User" />
+    <input type="text" [(ngModel)]="message" placeholder="Message" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  

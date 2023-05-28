@@ -1,0 +1,44 @@
+.container-fluid {
+    height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .col-md-10 {
+    max-width: 100%;
+  }
+  
+  .chat-box {
+    height: 70vh;
+    width: 100%;
+    overflow-y: auto;
+    border: 7px solid #ffc000;
+    border-radius: 7px;
+    padding: 10px;
+    background-color: #692F94;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .sender {
+    text-align: right;
+    color: #f9f9f9;
+  }
+  
+  .receiver {
+    text-align: left;
+    color: #f9f9f9;
+  }
+  
+  .input-group {
+    margin-top: 10px;
+  }
+  

@@ -19,9 +19,16 @@ import { MentorProfileOpenComponent } from './Components/SearchATutor/mentor-pro
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterationFormComponent } from './Components/registeration-form/registeration-form.component';
 import { AuthGuard } from './Services/AuthGuardService/auth-guard.service';
+import { ChatComponent } from './Components/chat/chat.component';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { RequestAJobComponent } from './Components/RequestAMentor/request-ajob/request-ajob.component';
+import { InfoCardComponent } from './Components/info-card/info-card.component';
+
 const routes: Routes = [
 
   {path:'',component:MainPageComponent},
+  {path:'chat',component:ChatComponent},
+  
   { path: 'header', component: HeaderOfPageComponent },
   { path: 'footer', component: FooterOfPageComponent },
   { path: 'main-slider', component: MainSliderComponent },
@@ -32,11 +39,14 @@ const routes: Routes = [
   {path:'register-as-student', component:StudentRegisterationComponent},
   {path:'register-as-mentor', component:MentorRegisterationComponent},
   {path:'Search-Mentor', component:SearchATutorComponent,canActivate: [AuthGuard]},
-  {path:'Request-Mentor', component:RequestAMentorComponent},
+  {path:'Request-Mentor', component:RequestAMentorComponent,canActivate: [AuthGuard]},
+  {path:'Request-Job',component:RequestAJobComponent,canActivate: [AuthGuard]},
   {path:'Contact', component:ContactUsComponent,canActivate: [AuthGuard]},
   {path:'mentorProfileOpen', component:MentorProfileOpenComponent},
     {path:'Login', component:LoginComponent},
+    {path:'Spinner', component:SpinnerComponent},
     {path:'Registeration', component:RegisterationFormComponent},
+    {path:'info', component:InfoCardComponent},
 ];
 
 @NgModule({

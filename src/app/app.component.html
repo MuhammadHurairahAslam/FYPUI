@@ -1,6 +1,12 @@
+
 <app-header-of-page></app-header-of-page>
-<router-outlet></router-outlet>
+
+<router-outlet>
+  
+</router-outlet>
 <!-- <app-main-page></app-main-page> -->
 <!-- <app-student-registeration></app-student-registeration> -->
 <!-- <app-mentor-registeration></app-mentor-registeration> -->
+
 <app-footer-of-page></app-footer-of-page>
+<app-spinner *ngIf="this.common.showSpinner"></app-spinner>

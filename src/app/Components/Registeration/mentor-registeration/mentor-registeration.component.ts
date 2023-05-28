@@ -1,9 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MentorServiceService } from 'src/app/Services/MentorService/mentor-service.service';
 import { LocationService } from '../../../Services/Location/location.service';
-import { HttpErrorResponse, HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpErrorResponse, HttpClient, HttpResponse } from '@angular/common/http';
 import { Commons } from 'src/assets/Commons';
 import { UploadFileServiceService } from 'src/app/Services/UploadFileService/upload-file-service.service';
+import { OpenModelService } from 'src/app/Services/OpenModelService/open-model.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-mentor-registeration',
   templateUrl: './mentor-registeration.component.html',
@@ -18,7 +21,10 @@ export class MentorRegisterationComponent {
   location: any;
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private mentorService: MentorServiceService, private locationService: LocationService,private uploadService:UploadFileServiceService, private http: HttpClient) {
+  constructor(private mentorService: MentorServiceService, private router: Router,
+    private locationService: LocationService,private uploadService:UploadFileServiceService, 
+    private open:OpenModelService) {
+      this.open.closeModel();
     this.Commons = Commons;
     this.getUserLocation();
   }
@@ -104,26 +110,37 @@ export class MentorRegisterationComponent {
     this.dataToSend.subjectName = this.subArr;
 
     this.mentorService.checkUserExistOrNot(this.dataToSend).subscribe(
-      (response) => {
-        var res;
-
-        if (response === "2") {
-
-          alert("User Already Exist");
-        }
-        else if (response === "404") {
-
+      (response: HttpResponse<any>) => {
+        if (response.status === 200) {
+          this.Commons.showSpinner = false;
+          this.Commons.showCard=true;
+         
 
         }
-        // Handle successful response
-        console.log('Response:', res);
+        else if (response.status === 404) {
+         
+          this.mentorService.PostRequest(this.dataToSend).subscribe(
+            (response: HttpResponse<any>) => {
+              if (response.status === 200) {
+                this.Commons.showSpinner = false;
+                this.router.navigate(['']);              
+              }
+              else if (response.status === 404) {
+                this.Commons.showSpinner = false;
+              }
+            },
+            (error: HttpErrorResponse) => {
+              console.log("ERROR:",error);
+              this.Commons.showSpinner = false;
+            }
+          );
+         
+        }
       },
       (error: HttpErrorResponse) => {
-        // Handle error response
-        console.error('Error:', error);
+        this.Commons.showSpinner = false;
       }
     );
-
   }
 
   getUserLocation() {
@@ -136,6 +153,4 @@ export class MentorRegisterationComponent {
         console.error(error);
       });
   }
-
-
 }

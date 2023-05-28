@@ -1,0 +1,92 @@
+<div class="container">
+    <form class="was-validated" #mentorForm="ngForm" (ngSubmit)="getRequestMentorFormData(mentorForm.value)">
+        <div class="mt-5">
+            <h4 class="text-secondary">Personal Information</h4>
+            <div class="card bg-light">
+    
+                <div class="card-body">
+    
+                    <div class="row mb-3">
+                        <div class="col-sm-6 position-relative">
+                            <label for="validationTooltip01" class="form-label">Level Of Education</label>
+                            <input type="text" placeholder="Enter Class" class="form-control"
+                                value="" required  ngModel name="class">
+                        </div>
+                        <div class="col-sm-6 position-relative">
+                            <label for="validationTooltip01" class="form-label">Institute Name</label>
+                            <input type="email" placeholder="Enter Insitute Name" class="form-control" 
+                                value="" required ngModel name="instituteName">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 position-relative">
+                            <label for="validationTooltip01" class="form-label">Experience</label>
+                            <input type="text" placeholder="Enter how much years of experience" class="form-control" 
+                                value="" required  ngModel name="experience">
+                        </div>
+                        <div class="col-sm-6 position-relative">
+                            <label for="validationTooltip01" class="form-label">Location</label>
+                            <input type="text" placeholder="Enter Location" class="form-control" 
+                                value="" required  ngModel name="location">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-12 position-relative">
+                            <label for="validationTooltip01" class="form-label">Description</label>
+                            <textarea type="text" placeholder="Enter Description here" class="form-control" 
+                                value="" required  ngModel name="description"></textarea>
+                        </div>
+                    </div>
+                  
+    
+                    
+    
+    
+                   
+    
+    
+    
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <h4 class="text-secondary">Subject You Learn</h4>
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-9 position-relative m-auto">
+                            <label for="validationTooltip01" class="form-label">Subject</label>
+                            <div class="d-flex">
+                                <input type="text" #subject placeholder="Enter your current name you work"
+                                    class="form-control col-sm-9"  value="" required ngModel
+                                    name="SubjectYouTeach">
+                                <div class="col-sm-1 d-flex justify-content-center">
+                                    <img src="../../../../assets/Images/plus.png" alt="..." class="plus"
+                                        (click)="getValue(subject.value)" />
+                                </div>
+                            </div>
+                            <div class="col mt-5" *ngIf="subArr">
+                                <ul class="container">
+                                    <li *ngFor="let data of subArr;let indexOfelement =index "
+                                        class="card-body mt-2 subjectList">
+                                        <div class="d-flex justify-content-between">
+                                            {{data}}
+
+                                            <i *ngIf="subArr" class="bi bi-x-octagon-fill"
+                                                (click)="delValue(indexOfelement)"></i>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 mb-3">
+            <input class="btn btn-primary" type="submit" value="Post Now" />
+        </div>
+    </form>
+</div>

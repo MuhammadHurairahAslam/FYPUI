@@ -4,6 +4,7 @@ import { StudentServiceService } from 'src/app/Services/StudentService/student-s
 import{HttpErrorResponse} from'@angular/common/http';
 import { Router } from '@angular/router';
 import {environment} from'../../../../assets/environment';
+import { AuthencationService } from 'src/app/Services/AuthencationService/authencation.service';
 @Component({
   selector: 'app-search-a-tutor',
   templateUrl: './search-a-tutor.component.html',
@@ -18,23 +19,29 @@ export class SearchATutorComponent implements OnInit{
     area:""
     };
     responseObj:any;
-
-constructor(private mentorService:MentorServiceService,private studentService:StudentServiceService,private router: Router){
+type:any;
+constructor(private mentorService:MentorServiceService,
+  private studentService:StudentServiceService,private router: Router,private auth:AuthencationService){
  
 }
 ngOnInit(): void {
+  this.type=this.auth.getAccountType();
   this.url=environment.hostAddress;
-  this.getAllMentors(this.data);
+console.log("type: ",this.type);
+this.getAll(this.data,this.type);
 }
 
 
-getAllMentors(data:any){
+getAll(data:any,type:any){
 
 this.data.subjectName=data.subject;
 this.data.area=data.area;
 this.data.city=data.city;
 this.data.provinence=data.Provinence;
-  this.studentService.getAll(this.data).subscribe((response)=>{
+(type=="student"?this.mentorService.getAll(this.data):
+  this.studentService.getAll(this.data)).subscribe((response)=>{
+    console.log("Calling API...................");
+    console.log("Type: ",type);
   if(response!=null)
   {
     console.log(response);
@@ -47,8 +54,14 @@ this.data.provinence=data.Provinence;
   });
 
 }
-navigateToMentorProfile(data:any){
+navigateToProfile(data:any){
   this.router.navigate(['/mentorProfileOpen'], { state: { data } });
 }
-
+navigateToChat(data:any){
+  this.router.navigate(['/chat'], { state: { data } });
+}
+backToList(data:any,type:any){
+ data.resetForm();
+this.getAll(data,type);
+}
 }

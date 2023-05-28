@@ -1,0 +1,25 @@
+.glowing-border {
+    border: 2px solid #692F94;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #692F94;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .glowing-border:hover {
+    box-shadow: 0 0 20px #692F94;
+  }
+  $overlay-bg-color: rgba(0, 0, 0, 0.7);
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $overlay-bg-color;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  
+  }  

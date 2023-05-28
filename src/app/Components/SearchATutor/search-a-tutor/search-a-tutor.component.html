@@ -5,7 +5,7 @@
 
             <div class="card-body">
 
-                <form #mentorForm="ngForm" (ngSubmit)="getAllMentors(mentorForm.value)">
+                <form #mentorForm="ngForm" (ngSubmit)="getAll(mentorForm.value,this.type)">
                     <div class="row mb-3">
                         <div class="col-sm-6 position-relative">
                             <label for="sub" class="form-label">Subject</label>
@@ -42,7 +42,7 @@
 
     <div *ngFor="let item of responseObj">
 
-        <div class="mt-5" (click)="navigateToMentorProfile(item)">
+        <div class="mt-5" (click)="navigateToProfile(item)">
 
 
             <div class="card bg-light mb-3">
@@ -82,7 +82,7 @@
                                     <p class="mx-1">(5/5)</p>
                                 </div>
                                 <div class="d-flex justify-content-end align-items-end">
-                                    <button class="btn btn-primary mt-5 ">Chat Now</button>
+                                    <button class="btn btn-primary mt-5" (click)="navigateToChat(item)">Chat Now</button>
                                 </div>
                             </div>
                         </div>
@@ -95,4 +95,11 @@
     </div>
 
 
+</div>
+
+<div *ngIf="responseObj.length<1 " style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 60vh;"  class="bg-light my-5 container ">
+    
+        <h1 style="font-weight: bold;">NOT FOUND</h1>
+        <h3>We couldn't find any user matching your search.</h3>
+        <button style="border-radius: 5px; " (click)="backToList(mentorForm,this.type)">Back To List</button>
 </div>

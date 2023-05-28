@@ -1,0 +1,46 @@
+form{
+    margin-right: 20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.loginReg{
+    border: none!important;
+    border-radius: 0px!important;
+    &:hover{
+        color: #777!important;
+        background-color: #f1d47b!important;
+    }
+    background-color: #ffc000!important;
+    color: #777;
+}
+a{
+
+    text-decoration: none;
+    color: #692F94;
+    &:hover{
+        color: #ffc000!important;
+    }
+}
+ul{
+    a{
+        color: #692F94!important;
+        font-weight: 600!important;
+        &:hover{
+            color: #ffc000!important;
+        }
+    }
+    
+}
+.reg{
+    border: none;
+    background-color: transparent;
+    color: #692F94;
+    &:hover{
+        color: #f1d47b;
+    }
+
+}
+.invalid-input {
+    border-color: red;
+    color: red;
+  }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/assets/environment';
+import { AuthencationService } from 'src/app/Services/AuthencationService/authencation.service';
 @Component({
   selector: 'app-mentor-profile-open',
   templateUrl: './mentor-profile-open.component.html',
@@ -8,7 +9,7 @@ import { environment } from 'src/assets/environment';
 })
 export class MentorProfileOpenComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute){}
+  constructor(private route: ActivatedRoute,protected auth:AuthencationService){}
 
   url:any;
   data:any;

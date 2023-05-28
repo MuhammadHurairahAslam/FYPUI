@@ -4,7 +4,10 @@ export const Commons={
     VProgress:0,
     VMessage:"",
     Video:"",
-    Images:"",
+    Images:"../../../../assets/Images/menprofile.png",
     VideoSrc:"",
-    ImageSrc:""
+    ImageSrc:"",
+    IsVisible:false,
+   showSpinner:false,
+   showInfoCard:false
 }

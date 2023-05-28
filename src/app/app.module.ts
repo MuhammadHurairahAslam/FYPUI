@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { SignalrService  } from './Services/SignlR/signal-r.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderOfPageComponent } from './Components/MainPage/header-of-page/header-of-page.component';
@@ -22,12 +25,17 @@ import { RequestAMentorComponent } from './Components/RequestAMentor/request-a-m
 import { ContactUsComponent } from './Components/contact-us/contact-us.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
 import { MentorProfileOpenComponent } from './Components/SearchATutor/mentor-profile-open/mentor-profile-open.component';
-
 import { LoginComponent } from './Components/login/login.component';
-
 import { RegisterationFormComponent } from './Components/registeration-form/registeration-form.component';
+import { JwtInterceptor } from './Services/JWTInterceptor/jwt-interceptor.service';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ChatComponent } from './Components/chat/chat.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { RequestAJobComponent } from './Components/RequestAMentor/request-ajob/request-ajob.component';
+import { InfoCardComponent } from './Components/info-card/info-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,21 +56,25 @@ import { RegisterationFormComponent } from './Components/registeration-form/regi
     MentorProfileOpenComponent,
     RegisterationFormComponent,
     LoginComponent,
-       
-    
-    
+    ChatComponent ,SpinnerComponent, RequestAJobComponent, InfoCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
-    
+    NgbModule,
+    RouterModule
+    ,MatDialogModule, NgxSpinnerModule
+
   ],
-  providers: [],
+  providers: [ SignalrService,
+    
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
   
 })

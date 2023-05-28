@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-slider.component.scss']
 })
 export class MainSliderComponent {
+constructor(){
+  
+}
+
 
 }

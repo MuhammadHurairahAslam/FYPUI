@@ -31,3 +31,10 @@ ul{
     }
     
 }
+button{
+    color:#692F94 ;
+    font-weight: 600!important;
+    &:hover{
+        color: #ffc000;
+    }
+}

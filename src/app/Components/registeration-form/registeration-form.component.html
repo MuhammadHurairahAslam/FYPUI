@@ -1,1 +1,41 @@
-<p>registeration-form works!</p>
+<div>
+    <div>
+      <div class="modal-content">
+        <div class="modal-header"style="background-color: #5b3473;">
+          <h2 class="modal-title text-white"  id="exampleModalToggleLabel">Register As A</h2>
+          <button type="button" class="btn-close btn btn-primary"
+           style="color: white; background-color: #ffc000!important;" 
+            aria-label="Close" (click)="closeModel('')"></button>
+
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6 d-flex justify-content-center align-middle">
+              <button (click)="closeModel('mentor')" data-bs-dismiss="modal">
+                <div class="card col px-5 pt-2 bg-light " style="height: 200px!important; ">
+                  <img src="../../../../assets/Images/video.png" alt="..."
+                    style="height: 130px; width: 120px;" />
+                  <div class="modal-footer w-100 justify-content-center align-bottom">
+                    <p>Mentor</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-center align-middle">
+              <button data-bs-dismiss="modal" (click)="closeModel('student')">
+                <div class="card col px-5 pt-2 bg-light" style="height: 200px!important; ">
+                  <img src="../../../../assets/Images/graduated.png" alt="..." 
+                  style="height: 100px; width: 120px; " />
+                  <div class="modal-footer w-100 justify-content-center align-bottom pt-5">
+                    
+                    <p>Student</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
